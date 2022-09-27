@@ -31,7 +31,25 @@ const double BaseFrequency = 16.35;
 #define BF  11
 #define B   12
 
-const char _names[] = { 'R', 'C', 'C', 'D', 'D', 'E', 'F', 'F', 'G', 'G', 'A', 'A', 'B' };
+#define DO              1
+#define DO_DIESIS       2
+#define RE_BEMOLLE      2
+#define RE              3
+#define RE_DIESIS       4
+#define MI_BEMOLLE      4
+#define MI              5
+#define FA              6
+#define FA_DIESIS       7
+#define SOL_BEMOLLE     7
+#define SOL             8
+#define SOL_DIESIS      9
+#define LA_BEMOLLE      9
+#define LA              10
+#define LA_DIESIS       11
+#define SI_BEMOLLE      11
+#define SI              12
+
+
 
 struct NOTE
 {
@@ -73,79 +91,11 @@ double noteFrequency(NOTE note)
   return returnValue;
 }
 
-String noteName(NOTE note)
-{
-  char buffer[5];
 
-  if (note.scale == 0)
-  {
-    sprintf(buffer, "Rest", _names[note.scale], note.octave);
-  }
-  else if (note.scale == 2 || note.scale == 4 || note.scale == 7 || note.scale == 9 || note.scale == 11 )
-  {
-    sprintf(buffer, "%c#-%d", _names[note.scale], note.octave);
-  }
-  else
-  {
-    sprintf(buffer, "%c -%d", _names[note.scale], note.octave);
-  }
-
-  return String(buffer);
-}
 
 volatile uint32_t toggle_count;
 
-void TinyTone(uint16_t frequency, uint32_t duration)
-{
-  // ***
-  // *** Scan through prescalars to find the best fit.
-  // ***
-  uint32_t ocr = F_CPU / frequency / 2;
-  uint8_t prescalarBits = 1;
 
-  while (ocr > 255)
-  {
-    prescalarBits++;
-    ocr /= 2;
-  }
-
-  // ***
-  // *** CTC mode; toggle OC1A pin; set prescalar.
-  // ***
-  TCCR1 = 0x90 | prescalarBits;
-
-  // ***
-  // *** Calculate note duration in terms of toggle count
-  // *** Duration will be tracked by timer1 ISR
-  // ***
-  toggle_count = frequency * duration / 500;
-  OCR1C = ocr - 1; // Set the OCR
-  bitWrite(TIMSK, OCIE1A, 1); // enable interrupt
-}
-
-// ***
-// *** Timer1 Interrupt Service Routine. Keeps
-// *** track of note duration via toggle counter.
-// *** When correct time has elapsed, counter is
-// *** disabled.
-// ***
-ISR(TIMER1_COMPA_vect)
-{
-  if (toggle_count != 0)
-  {
-    // ***
-    // *** Done yet?, no, keep counting.
-    // ***
-    toggle_count--;
-  }
-  else
-  {
-    // ***
-    // *** Yes, stop the counter
-    // ***
-    TCCR1 = 0x90;
-  }
-}
 
 void playMelody(NOTE* melody, uint16_t noteCount, uint16_t tempo)
 {
@@ -162,7 +112,7 @@ void playMelody(NOTE* melody, uint16_t noteCount, uint16_t tempo)
       // ***
       // *** Play the note.
       // ***
-      TinyTone(frequency, noteDuration);
+      tone(10, frequency,noteDuration);
     }
 
     // ***
@@ -170,6 +120,8 @@ void playMelody(NOTE* melody, uint16_t noteCount, uint16_t tempo)
     // ***
     int delayAfter = noteDuration * 1.3;
     delay(delayAfter);
+
+    noTone(10);
   }
 }
 #endif

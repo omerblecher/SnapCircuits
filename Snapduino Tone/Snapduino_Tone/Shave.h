@@ -6,7 +6,7 @@
 // ***
 // *** Shave and a Haircut
 // ***
-const NOTE _notes1[] =  { {C, 4, QUARTER}, {G, 3, EIGHTH}, {G, 3, EIGHTH}, {A, 3, QUARTER}, {G, 3, QUARTER}, {REST, 0, QUARTER}, {B, 3, QUARTER}, {C, 4, QUARTER} };
+const NOTE _notesShave[] =  { {DO, 4, QUARTER}, {SOL, 3, EIGHTH}, {SOL, 3, EIGHTH}, {LA, 3, QUARTER}, {SOL, 3, QUARTER}, {REST, 0, QUARTER}, {SI, 3, QUARTER}, {DO, 4, QUARTER} };
 
-const SONG ShaveAndAHaircut = { _notes1, 8, 1000 };
+const SONG ShaveAndAHaircut = { _notesShave, sizeof(_notesShave)/sizeof(_notesShave[0]), 1000 };
 #endif

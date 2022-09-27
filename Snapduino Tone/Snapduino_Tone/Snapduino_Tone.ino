@@ -17,14 +17,16 @@
 #include "Happy.h"      // HappyBirthday
 #include "Shave.h"      // ShaveAndAHaircut
 #include "Twinkle.h"    // TwinkleLittleStar
-//#include "KnowIt.h"   // HappyAndYouKnowIt
+#include "KnowIt.h"   // HappyAndYouKnowIt
+#include "OldMacDonald.h" //Old MacDonald
+#include "humptydumpty.h" //Humpty Dumpty
 
-#define SPEAKER_PIN 1
+#define SPEAKER_PIN 10
 
 // ***
 // *** Select the songs to play by adding them to this list.
 // ***
-SONG _songs[] = { ShaveAndAHaircut, HappyBirthday, TwinkleLittleStar };
+SONG _songs[] = { ShaveAndAHaircut, HappyBirthday, TwinkleLittleStar, HappyAndYouKnowIt, OldMacDonald, HumptyDumpty };
 
 void setup()
 {

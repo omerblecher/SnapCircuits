@@ -4,14 +4,14 @@
 #include "TinyTone.h"
 
 // ***
-// *** Twinkle, Twinkle Little Star
+// *** TwinklMI, Twinkle Little Star
 // ***
-const NOTE _notes3[] =  { {C, 4, QUARTER}, {C, 4, QUARTER}, {G, 4, QUARTER}, {G, 4, QUARTER}, {A, 4, QUARTER}, {A, 4, QUARTER}, {G, 4, HALF},
-                          {F, 4, QUARTER}, {F, 4, QUARTER}, {E, 4, QUARTER}, {E, 4, QUARTER}, {D, 4, QUARTER}, {D, 4, QUARTER}, {C, 4, HALF},
-                          {G, 4, QUARTER}, {G, 4, QUARTER}, {F, 4, QUARTER}, {F, 4, QUARTER}, {E, 4, QUARTER}, {E, 4, QUARTER}, {D, 4, HALF},
-                          {G, 4, QUARTER}, {G, 4, QUARTER}, {F, 4, QUARTER}, {F, 4, QUARTER}, {E, 4, QUARTER}, {E, 4, QUARTER}, {D, 4, HALF},
-                          {C, 4, QUARTER}, {C, 4, QUARTER}, {G, 4, QUARTER}, {G, 4, QUARTER}, {A, 4, QUARTER}, {A, 4, QUARTER}, {G, 4, HALF},
-                          {F, 4, QUARTER}, {F, 4, QUARTER}, {E, 4, QUARTER}, {E, 4, QUARTER}, {D, 4, QUARTER}, {D, 4, QUARTER}, {C, 4, HALF} };
+const NOTE _notesTwinkle[] =  { {DO, 4, QUARTER}, {DO, 4, QUARTER}, {SOL, 4, QUARTER}, {SOL, 4, QUARTER}, {LA, 4, QUARTER}, {LA, 4, QUARTER}, {SOL, 4, HALF},
+                          {FA, 4, QUARTER}, {FA, 4, QUARTER}, {MI, 4, QUARTER}, {MI, 4, QUARTER}, {RE, 4, QUARTER}, {RE, 4, QUARTER}, {DO, 4, HALF},
+                          {SOL, 4, QUARTER}, {SOL, 4, QUARTER}, {FA, 4, QUARTER}, {FA, 4, QUARTER}, {MI, 4, QUARTER}, {MI, 4, QUARTER}, {RE, 4, HALF},
+                          {SOL, 4, QUARTER}, {SOL, 4, QUARTER}, {FA, 4, QUARTER}, {FA, 4, QUARTER}, {MI, 4, QUARTER}, {MI, 4, QUARTER}, {RE, 4, HALF},
+                          {DO, 4, QUARTER}, {DO, 4, QUARTER}, {SOL, 4, QUARTER}, {SOL, 4, QUARTER}, {LA, 4, QUARTER}, {LA, 4, QUARTER}, {SOL, 4, HALF},
+                          {FA, 4, QUARTER}, {FA, 4, QUARTER}, {MI, 4, QUARTER}, {MI, 4, QUARTER}, {RE, 4, QUARTER}, {RE, 4, QUARTER}, {DO, 4, HALF} };
 
-const SONG TwinkleLittleStar = { _notes3, 42, 1000 };
+const SONG TwinkleLittleStar = { _notesTwinkle, sizeof(_notesTwinkle)/sizeof(_notesTwinkle[0]), 1000 };
 #endif
