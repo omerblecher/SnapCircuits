@@ -55,7 +55,7 @@ struct NOTE
 {
   uint8_t scale;
   uint8_t octave;
-  uint16_t duration;
+  double duration;
 };
 
 struct SONG
@@ -102,7 +102,7 @@ void playMelody(NOTE* melody, uint16_t noteCount, uint16_t tempo)
   for (int i = 0; i < noteCount; i++)
   {
     uint16_t frequency = (uint16_t)noteFrequency(melody[i]);
-    uint16_t noteDuration = tempo / melody[i].duration;
+    double noteDuration = tempo / melody[i].duration;
 
     // ***
     // *** Watch for rests with a frequency of 0.

@@ -20,13 +20,20 @@
 #include "KnowIt.h"   // HappyAndYouKnowIt
 #include "OldMacDonald.h" //Old MacDonald
 #include "humptydumpty.h" //Humpty Dumpty
+#include "MisterSun.h"    //Mister Sun
+#include "Bingo.h"        //Bingo
+#include "HeadShouldersKneesAndToes.h" //Head shoulders Knees and Toes"
+#include "Mary.h"        //Mary had a little lamb
 
 #define SPEAKER_PIN 10
 
 // ***
 // *** Select the songs to play by adding them to this list.
 // ***
-SONG _songs[] = { ShaveAndAHaircut, HappyBirthday, TwinkleLittleStar, HappyAndYouKnowIt, OldMacDonald, HumptyDumpty };
+// SONG _songs[] = { ShaveAndAHaircut, HappyBirthday, TwinkleLittleStar, HappyAndYouKnowIt, OldMacDonald, HumptyDumpty, MisterSun, Bingo, HeadShouldersKneesAndToes, Mary };
+
+SONG _songs[] = { HumptyDumpty, MisterSun, Bingo, HeadShouldersKneesAndToes, Mary};
+
 
 void setup()
 {
